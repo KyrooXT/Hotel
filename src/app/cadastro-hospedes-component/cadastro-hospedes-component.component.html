@@ -1,0 +1,46 @@
+<div class="form-container">
+  <h2>Cadastro de Hóspedes</h2>
+  <form (ngSubmit)="cadastrarHospede()">
+    <div class="form-group">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" [(ngModel)]="nome" name="nome" required />
+    </div>
+
+    <div class="form-group">
+      <label for="documento">Documento:</label>
+      <input type="text" id="documento" [(ngModel)]="documento" name="documento" required />
+    </div>
+
+    <div class="form-group">
+      <label for="telefone">Telefone:</label>
+      <input type="text" id="telefone" [(ngModel)]="telefone" name="telefone" required />
+    </div>
+
+    <div class="form-group">
+      <label for="cidade">Cidade:</label>
+      <input type="text" id="cidade" [(ngModel)]="cidade" name="cidade" required />
+    </div>
+
+    <button type="submit" class="submit-button">Cadastrar Hóspede</button>
+  </form>
+</div>
+
+<!-- Lista de Hóspedes -->
+<div class="hospedes-list">
+  <h2>Hóspedes Cadastrados</h2>
+  <ul>
+    <li *ngFor="let hospede of hospedes; let i = index" class="hospede-item">
+      <div class="hospede-info">
+        <p><strong>Nome:</strong> {{ hospede.nome }}</p>
+        <p><strong>Documento:</strong> {{ hospede.documento }}</p>
+        <p><strong>Telefone:</strong> {{ hospede.telefone }}</p>
+        <p><strong>Cidade:</strong> {{ hospede.cidade }}</p>
+      </div>
+      <div class="hospede-actions">
+        <button (click)="editarHospede(i)">Editar</button>
+        <button (click)="excluirHospede(i)">Excluir</button>
+      </div>
+    </li>
+  </ul>
+</div>
+
